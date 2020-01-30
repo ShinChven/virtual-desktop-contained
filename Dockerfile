@@ -5,7 +5,7 @@ COPY sources.163.list /etc/apt/sources.list
 ## install tools
 
 RUN apt-get update && apt-get upgrade -y \
-&& apt-get install -y apt-utils make curl cmake vim tzdata \
+&& apt-get install -y apt-utils vim tzdata \
 && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && export DEBIAN_FRONTEND=noninteractive \
 && dpkg-reconfigure --frontend noninteractive tzdata \
