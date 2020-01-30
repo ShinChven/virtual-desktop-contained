@@ -23,4 +23,4 @@ RUN cat password.txt password.txt | vncpasswd && \
 # Expose VNC port
 EXPOSE 5901
 
-CMD vncserver -localhost no -geometry 1920x1080 -depth 32
+CMD ["--wait"]
