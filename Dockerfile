@@ -5,19 +5,12 @@ COPY sources.163.list /etc/apt/sources.list
 ## install tools
 
 RUN apt-get update && apt-get upgrade -y \
-&& apt-get install -y apt-utils vim tzdata \
-&& ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && export DEBIAN_FRONTEND=noninteractive \
+&& apt-get install -y apt-utils vim tzdata ubuntu-gnome-desktop xserver-xorg-core tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer \
+&& ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && dpkg-reconfigure --frontend noninteractive tzdata \
+&& echo "/usr/sbin/lightdm" > /etc/X11/default-display-manager \
 && export DEBIAN_FRONTEND=
-
-# install desktop
-
-RUN apt-get install -y ubuntu-gnome-desktop
-
-## install vnc
-
-RUN apt-get install -y xserver-xorg-core tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
 
 COPY xstartup /root/.vnc/xstartup
 
