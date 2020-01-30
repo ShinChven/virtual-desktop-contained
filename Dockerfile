@@ -11,7 +11,7 @@ FROM ubuntu:bionic
 
 ## install desktop
 
-RUN apt-get install y ubuntu-gnome-desktop
+RUN apt-get install -y ubuntu-gnome-desktop
 
 ## install vnc
 
