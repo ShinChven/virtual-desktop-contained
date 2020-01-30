@@ -7,6 +7,5 @@ services:
       dockerfile: Dockerfile
     image: shinchven/virtual-desktop-contained
     container_name: virtual-desktop-contained
-    command: "vncserver -localhost no -geometry 1920x1080 -depth 32"
     ports:
     - "5901:5901"
