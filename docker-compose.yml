@@ -7,3 +7,5 @@ services:
       dockerfile: Dockerfile
     image: shinchven/virtual-desktop-contained
     container_name: virtual-desktop-contained
+    ports:
+    - "5901:5901"
