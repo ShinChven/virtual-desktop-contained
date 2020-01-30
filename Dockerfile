@@ -20,3 +20,12 @@ RUN apt-get install -y ubuntu-gnome-desktop
 RUN apt-get install -y xserver-xorg-core tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
 
 COPY xstartup /root/.vnc/xstartup
+
+# Set user for VNC server (USER is only for build)
+ENV USER root
+# Set default password
+COPY password.txt .
+RUN cat password.txt password.txt | vncpasswd && \
+  rm password.txt
+# Expose VNC port
+EXPOSE 5901
