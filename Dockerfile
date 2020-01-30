@@ -18,3 +18,5 @@ RUN apt-get install -y ubuntu-gnome-desktop
 ## install vnc
 
 RUN apt-get install -y xserver-xorg-core tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
+
+COPY xstartup /root/.vnc/xstartup
