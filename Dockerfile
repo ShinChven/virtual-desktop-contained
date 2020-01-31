@@ -7,6 +7,7 @@ COPY sources.163.list /etc/apt/sources.list
 RUN apt-get update && apt-get upgrade -y \
 && export DEBIAN_FRONTEND=noninteractive \
 && apt-get install -y apt-utils vim ubuntu-gnome-desktop xserver-xorg-core tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer \
+&& echo "/usr/sbin/lightdm" > /etc/X11/default-display-manager \
 && export DEBIAN_FRONTEND=
 
 COPY xstartup /root/.vnc/xstartup
