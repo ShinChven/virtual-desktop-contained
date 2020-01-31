@@ -22,3 +22,5 @@ RUN cat password.txt password.txt | vncpasswd && \
   rm password.txt
 # Expose VNC port
 EXPOSE 5901
+
+COPY start.sh start.sh

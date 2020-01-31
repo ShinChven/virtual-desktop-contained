@@ -9,7 +9,7 @@ services:
     container_name: virtual-desktop-contained
     stdin_open: true
     tty: true
-    command: "sh -c 'vncserver -localhost -fg no -geometry 1920x1080 -depth 32' && /bin/bash"
+    command: sh start.sh vncserver -localhost no -geometry 1920x1080 -depth 32
     ports:
       - "5901:5901"
 
