@@ -2,15 +2,12 @@ FROM ubuntu:bionic
 
 COPY sources.163.list /etc/apt/sources.list
 
-## install tools
+ENV VNC_PASSWORD your_vnc_password
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade -y \
-&& export DEBIAN_FRONTEND=noninteractive \
-&& apt-get install -y apt-utils vim tzdata ubuntu-gnome-desktop xserver-xorg-core tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer \
-&& ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-&& dpkg-reconfigure --frontend noninteractive tzdata \
-&& echo "/usr/sbin/lightdm" > /etc/X11/default-display-manager \
-&& export DEBIAN_FRONTEND=
+&& apt-get install -y apt-utils vim firefox \
+xfce4 xserver-xorg-core xfce4-terminal tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
 
 COPY xstartup /root/.vnc/xstartup
 
