@@ -2,7 +2,6 @@ FROM ubuntu:bionic
 
 COPY sources.163.list /etc/apt/sources.list
 
-ENV VNC_PASSWORD your_vnc_password
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade -y \
