@@ -2,12 +2,12 @@ FROM ubuntu:bionic
 
 COPY sources.163.list /etc/apt/sources.list
 
-ENV VNC_PASSWORD your_vnc_password
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get upgrade -y \
 && apt-get install -y apt-utils vim firefox \
-xfce4 xserver-xorg-core xfce4-terminal tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
+xfce4 xserver-xorg-core xfce4-terminal tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer \
+language-pack-zh-hans font-manager fonts-wqy-microhei ttf-wqy-zenhei
 
 COPY xstartup /root/.vnc/xstartup
 
